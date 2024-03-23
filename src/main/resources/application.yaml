@@ -1,0 +1,14 @@
+spring.mail.host: email-smtp.us-east-1.amazonaws.com
+spring.mail.username: ${USER:teste}
+spring.mail.password: ${PASS:teste}
+spring.mail.properties.mail.transport.protocol: smtp
+spring.mail.properties.mail.smtp.port: 587
+spring.mail.properties.mail.smtp.auth: true
+spring.mail.properties.mail.smtp.starttls.enable: true
+spring.mail.properties.mail.smtp.starttls.required: true
+from.email.address: ${EMAIL:ponto@teste.com}
+
+server:
+  port: 9090
+  servlet:
+    context-path: /report-ms
