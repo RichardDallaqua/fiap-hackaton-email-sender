@@ -33,6 +33,7 @@ public class RelatorioService {
 
     public void sendEmail(String emailAddress, PontoInfoDTO pontoInfoDTO){
         try{
+            log.info("<<< Iniciando envio de dados por e-mail >>>");
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message);
             helper.setFrom(fromEmailAddress);
@@ -49,6 +50,7 @@ public class RelatorioService {
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(anexoParte);
             message.setContent(multipart);
+            log.info("<<< Realizando envio de dados por e-mail >>>");
             mailSender.send(message);
         }catch (Exception ex){
             log.error("Erro ao enviar e-mail : {}", ex.getMessage());
@@ -56,6 +58,7 @@ public class RelatorioService {
     }
 
     private String generateCsvReport(PontoInfoDTO pontoInfoDTO) throws IOException {
+        log.info("<<< Gerando relatorio CSV >>>");
         try (StringWriter stringWriter = new StringWriter();
              CSVWriter writer = new CSVWriter(stringWriter)) {
 
